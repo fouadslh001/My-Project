@@ -1,0 +1,124 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        button {
+            background-color: rgb(140, 140, 158);
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: none;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .optionBtn {
+            background-color: rgb(196, 123, 28);
+        }
+
+        .clearBtn {
+            background-color: rgb(170, 23, 23);
+        }
+        .clearBtn:hover {
+            background-color: red;
+        }
+
+        .calculeBtn {
+            background-color: rgb(23, 199, 23);
+        }
+        ..calculeBtn:hover {
+            background-color: green;
+        }
+
+        button:hover {
+            background-color: rgb(140, 140, 200);
+        }
+        button:active {
+            background-color: rgb(42, 112, 165);
+        }
+        .calculator {
+            background-color: rgb(19, 19, 19);
+            max-width: 500px;
+            overflow: hidden;
+            border-radius: 40px;
+
+        }
+        #display {
+            width: 100%;
+            padding: 20px;
+            height: 80px;
+            border: none;
+            text-align: left;
+            font-size: 50px;
+            margin-bottom: 5px;
+            color: white;
+            background-color: rgb(54, 51, 51);
+        }
+        .key {
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            gap: 10px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input id="display" readonly>
+        <div class="key">
+            <button onclick="appendToDisplay('+')" class="optionBtn">+</button>
+            <button onclick="appendToDisplay('7')">7</button>
+            <button onclick="appendToDisplay('8')">8</button>
+            <button onclick="appendToDisplay('9')">9</button>
+            <button onclick="appendToDisplay('-')" class="optionBtn">-</button>
+            <button onclick="appendToDisplay('4')">4</button>
+            <button onclick="appendToDisplay('5')">5</button>
+            <button onclick="appendToDisplay('6')">6</button>
+            <button onclick="appendToDisplay('*')" class="optionBtn">*</button>
+            <button onclick="appendToDisplay('1')">1</button>
+            <button onclick="appendToDisplay('2')">2</button>
+            <button onclick="appendToDisplay('3')">3</button>
+            <button onclick="appendToDisplay('/')" class="optionBtn">/</button>
+            <button onclick="appendToDisplay('0')">0</button>
+            <button onclick="appendToDisplay('.')">.</button>
+
+            <button onclick="calculateDisplay()" class="calculeBtn">=</button>
+            <button onclick="clearDisplay()" class="clearBtn">C</button>
+        </div>
+    </div>
+    <script>
+        const display = document.getElementById("display");
+
+        function appendToDisplay(input) {
+            display.value += input;
+        }
+
+        function clearDisplay() {
+            display.value = "";
+        }
+
+        function calculateDisplay() {
+            try {
+                display.value = eval(display.value);
+            }
+
+            catch(error) {
+                display.value = "Error";
+            }
+        }
+    </script>
+</body>
+</html>
